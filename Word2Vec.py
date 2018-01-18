@@ -36,9 +36,8 @@ sentences = []
 
 for sentence in sentences:      #   Sentences are cohesive structures, so I'll consider each one at a time. Context tends to vary between them, so it wouldn't be right for the window to overlap onto the next/previous sentence.
     for index, word in enumerate(sentence): #   Considering each word as an input, what are the possible outputs given my window size?
-        for outputWord in sentence[max(index - WINDOW, 0) : min(index + WINDOW, len(sentence))]:    #   To make sure I don't break the bounds of the list
+        for outputWord in sentence[max(index - WINDOW, 0) : min(index + WINDOW, len(sentence)) + 1]:    #   To make sure I don't break the bounds of the list
             if outputWord != ',' and outputWord != word:
                 dataset.append([word, outputWord])
 
 print(dataset)
-

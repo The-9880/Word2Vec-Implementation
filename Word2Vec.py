@@ -63,6 +63,15 @@ y_train = np.asarray(y_train)
 
 #print(X_train)
 
+#   Save the hashtables
+f = open('wordReference.txt', 'w')
+s = open('intReference.txt', 'w')
+for x in wordReference:
+    f.write(str(x) + " " + str(wordReference[x]) + " " + "\n")
+    s.write(str(wordReference[x]) + " " + str(x) + " " + "\n")
+f.close()
+s.close()
+
 #   Training the model
 model = keras.models.Sequential()
 model.add(keras.layers.Dense(6, input_dim = len(corpus_words), activation='relu'))

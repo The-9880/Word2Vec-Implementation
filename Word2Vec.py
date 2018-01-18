@@ -1,4 +1,6 @@
 import numpy as np
+import tensorflow
+import keras
 from sklearn.model_selection import train_test_split        #   Probably won't use this... imported out of habit, I guess.
 
 #   I'll be using a n-gram model here to learn the word embeddings for NLP applications, or at least demonstrate the concept.
@@ -60,3 +62,12 @@ X_train = np.asarray(X_train)
 y_train = np.asarray(y_train)
 
 #print(X_train)
+
+#   Training the model
+model = keras.models.Sequential()
+model.add(keras.layers.Dense(6, input_dim = len(corpus_words), activation='relu'))
+model.add(keras.layers.Dense(len(corpus_words), activation='softmax'))
+model.compile(optimizer='sgd', loss='categorical_crossentropy', metrics=None)
+
+model.fit(X_train, y_train, batch_size = 32)
+model.save("Word2VecLearned.h5")

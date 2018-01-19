@@ -78,5 +78,5 @@ model.add(keras.layers.Dense(6, input_dim = len(corpus_words), activation='relu'
 model.add(keras.layers.Dense(len(corpus_words), activation='softmax'))
 model.compile(optimizer='sgd', loss='categorical_crossentropy', metrics=None)
 
-model.fit(X_train, y_train, batch_size = 32)
+model.fit(X_train, y_train, batch_size=32, epochs=10000)
 model.save("Word2VecLearned.h5")

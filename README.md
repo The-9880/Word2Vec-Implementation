@@ -16,5 +16,5 @@ features in their usage) should be plotted closer to each other.
 
 Assuming a proper network architecture, an appropriate number of training epochs, etc. the quality of learning will 
 then depend - as always - on the quality of data used. In this case, this means the size of the text corpus and its features (unique word count, amount of occurences
-of each word, etc.) Even if a very large corpus is used, the algorithm can hardly be expected to learn a good vector embedding for a word
+of each word, etc.). Even if a very large corpus is used, the algorithm can hardly be expected to learn a good vector embedding for a word
 that occurs maybe only a few times in the training data.
